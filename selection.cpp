@@ -1,5 +1,6 @@
 //selection index
 // to compile g++ selection.cpp -o selection -O2 -larmadillo
+//written by Dunia Pino del Carpio 2017
 
 #include <iostream>
 #include <armadillo>
