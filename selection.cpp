@@ -51,8 +51,8 @@ arma::mat covariance (arma::mat pheno)
 vec Selection::SelectionIndex(Phenotype& phenotype,vec weights){
 	arma::mat phenovalues = phenotype.Value();
     arma::mat geneticvalues = phenotype.Effect(ADDITIVE);	    
-	arma::mat P = covariance(phenos); 
-    arma::mat G = covariance(TBV); 
+	arma::mat P = covariance(phenovalues); 
+    arma::mat G = covariance(geneticvalues); 
     mat A = P.i();
     arma::mat b = A*G*v;//optimal index values
     arma::mat var_T = v.t()*G*v; //Variance of the Index
