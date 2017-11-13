@@ -42,7 +42,7 @@ RandomEffects = matrix(rnorm(NoQTL*(NoPheno-length(traitLG))), nrow=NoQTL, ncol 
 RandomEffects = cbind(largeEtraits,RandomEffects)
 RescaledEffects = RandomEffects %*% solve(chol(var(RandomEffects)))
 colnames(RescaledEffects)=c(traitLG,traits)
-Positions=matrix(sample(NoSNP,NoPheno*NoQTL))
+Positions=matrix(sample(NoSNP,NoPheno*NoQTL),ncol=NoPheno)
 EffectSNPs=matrix(0,nrow = NoSNP,ncol=NoPheno)
 
 for (i in seq(1:NoPheno)) {
