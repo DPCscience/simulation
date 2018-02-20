@@ -13,3 +13,12 @@ max(abs(Q - R))  # maximum discrepancy between R and Q
 R <- matrix(runif(36), ncol=6) 
 RtR <- R %*% t(R) 
 Q <- cov2cor(RtR) 
+
+#https://stats.stackexchange.com/questions/124538/how-to-generate-a-large-full-rank-random-correlation-matrix-with-some-strong-cor
+#Method 3, creates a 1 in the diagonal unlike the other methods
+d = 6;    
+k = 6;      
+W = randn(d,k)
+S <- W%*%t(W)+ + diag(rand(1,d))
+S <- diag(1./sqrt(diag(S))) %*% S %*% diag(1./sqrt(diag(S)))
+S
